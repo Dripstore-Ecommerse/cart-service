@@ -6,13 +6,13 @@ const router: Router = express.Router();
 
 router
   .route("/")
-  .post(validate(cartValidation.createcart), cartController.createcart)
-  .get(validate(cartValidation.getcarts), cartController.getcarts);
+  .post(validate(cartValidation.createCart), cartController.createCart)
+  .get(validate(cartValidation.getCarts), cartController.getCarts);
 
 router
   .route("/:cartId")
-  .get(validate(cartValidation.getcart), cartController.getcart)
-  .patch(validate(cartValidation.updatecart), cartController.updatecart)
-  .delete(validate(cartValidation.deletecart), cartController.deletecart);
+  .get(validate(cartValidation.getCart), cartController.getCart)
+  .patch(validate(cartValidation.updateCart), cartController.updateCart)
+  .delete(validate(cartValidation.deleteCart), cartController.deleteCart);
 
 export default router;

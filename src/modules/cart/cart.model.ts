@@ -6,8 +6,16 @@ import { ICart, cartModel } from "./cart.interfaces";
 const cartSchema = new mongoose.Schema<ICart>(
   {
     userId: { type: mongoose.Schema.Types.ObjectId, required: true },
-    products: { type: [mongoose.Schema.Types.ObjectId], default: [] },
-    total: { type: Number, default: 0 },
+    items: [
+      {
+        productId: { type: mongoose.Schema.Types.ObjectId, required: true },
+        productVariantId: {
+          type: mongoose.Schema.Types.ObjectId,
+          required: true,
+        },
+        quantity: { type: Number, required: true },
+      },
+    ],
     coupon: { type: mongoose.Schema.Types.ObjectId, default: null },
   },
   {
